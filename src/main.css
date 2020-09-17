@@ -1,0 +1,218 @@
+/* Стили для превью */
+.PreviewSection {
+  display: flex;
+}
+
+.PreviewSection .FormLayout {
+  flex-grow: 1;
+}
+
+.PreviewSection .FormLayout__row {
+  padding: 0;
+}
+
+/* Стили для превью */
+.SettingsSection .FormLayout__row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.TimecodeItem .FormField:nth-of-type(2) {
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+.TimecodeItem .FormField:nth-of-type(3) {
+  flex-shrink: 1;
+  max-width: 80px;
+}
+
+/* Стили для Загрузки файла */
+.FileInputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  width: 72px;
+  background-color: #F2F3F5;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.FileInputWrapper .Button__content {
+  display: none;
+}
+
+.FileInputWrapper .Button__before .Icon--28 {
+  margin-right: -6px;
+}
+
+/* Стили для Загрузки превью */
+.ImagePreview {
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  height: 72px;
+  width: 72px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.ImagePreview > img {
+  width: 100%;
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
+}
+
+.ImagePreview > button {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #fff;
+  background-color: #99A2AD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Track */
+.TrackWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.TrackContent {}
+
+/* Track Timeline */
+.Timeline {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  height: 30px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border: 1px solid #99A2AD;
+  background-color: #F2F3F5;
+  overflow-y: scroll;
+}
+
+.Timeline::-webkit-scrollbar {
+  display: none;
+}
+
+.Timeline .Tick:not(:last-of-type) {
+  margin-left: 5px;
+}
+
+.Tick {
+  flex-shrink: 0;
+  width: 1px;
+  border-radius: 2px;
+  background-color: #99A2AD;
+}
+
+.Tick.Tick--Large {
+  position: relative;
+  height: 8px;
+}
+
+.TickTime {
+  top: -12px;
+  left: -12px;
+  font-size: 9px;
+  color: #99A2AD;
+  position: absolute;
+}
+
+.Tick.Tick--Medium {
+  height: 4px;
+}
+
+.Tick.Tick--Small {
+  height: 2px;
+}
+
+/* Track Waveform */
+.WaveForm {
+  box-sizing: border-box;
+  position: relative;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  background-color: #F2F3F5;
+  border-right: 1px solid #99A2AD;
+  border-left: 1px solid #99A2AD;
+  overflow-y: scroll;
+}
+
+.WaveForm::-webkit-scrollbar {
+  display: none;
+}
+
+.WaveForm .WaveItem:not(:last-of-type) {
+  margin-left: 5px;
+}
+
+.WaveItem {
+  flex-shrink: 0;
+  width: 2px;
+  border-radius: 2px;
+  background-color: #3F8AE0;
+}
+
+/* Track Visor */
+.Visor {
+  z-index: 2;
+  position: absolute;
+  width: 2px;
+  height: 170px;
+  background-color: #FF3347;
+  transition: 0.2s ease;
+}
+
+.Visor:before {
+  position: absolute;
+  top: -8px;
+  left: -4px;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.75981 8.55C5.64434 8.75 5.35566 8.75 5.24019 8.55L0.996668 1.2C0.881198 1 1.02554 0.75 1.25648 0.75H9.74352C9.97446 0.75 10.1188 1 10.0033 1.2L5.75981 8.55Z' fill='%23FF3347'/%3E%3C/svg%3E%0A");
+}
+
+/* Controls */
+.Controls {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #99A2AD;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.Controls > button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3F8AE0;
+  border: none;
+  border-radius: 10px;
+}
+
+.Controls > button + button {
+  margin-left: 8px;
+}
+
+.Controls > button:disabled {
+  background-color: #F2F3F5;
+}
