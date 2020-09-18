@@ -11,8 +11,14 @@ import Final from './panels/Final';
 import './main.css';
 
 const App = () => {
-  const [activePanel, setActivePanel] = useState('final');
-  // const [activePanel, setActivePanel] = useState('create');
+  const [activePanel, setActivePanel] = useState('start');
+  const [post, setPostState] = useState({
+    title: '',
+    description: '',
+    audioTitle: '',
+    preview: null,
+    timecodes: []
+  })
 
   const goToPanel = panelName => {
     setActivePanel(panelName);
@@ -28,11 +34,14 @@ const App = () => {
       <Create
         id="create"
         goToPanel={goToPanel}
+        post={post}
+        setPostState={setPostState}
       />
 
       <Post
         id="post"
         goToPanel={goToPanel}
+        post={post}
       />
 
       <Final

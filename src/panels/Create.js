@@ -39,15 +39,15 @@ const ImagePreview = ({ imageSrc, onResetPreviewClick }) => {
   );
 };
 
-const Create = ({ id, goToPanel }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const Create = ({ id, goToPanel, post, setPostState }) => {
+  const [title, setTitle] = useState(post.title);
+  const [description, setDescription] = useState(post.description);
 
   const [audio, setAudio] = useState(null);
-  const [audioTitle, setAudioTitle] = useState("");
+  const [audioTitle, setAudioTitle] = useState(post.audioTitle);
   const [audioStepActive, setAudioStepActive] = useState(false);
 
-  const [preview, setPreview] = useState(null);
+  const [preview, setPreview] = useState(post.preview);
   const [waveForm, setWaveForm] = useState([]);
   const [audioDuration, setAudioDuration] = useState(0);
 
@@ -55,7 +55,7 @@ const Create = ({ id, goToPanel }) => {
   const [isExcludeEpisode, setIsExcludeEpisode] = useState(false);
   const [isTrailer, setIsTrailer] = useState(false);
 
-  const [timecodes, setTimecodes] = useState([]);
+  const [timecodes, setTimecodes] = useState(post.timecodes);
 
   const handleBackClick = () => {
     if (audioStepActive) {
@@ -180,6 +180,20 @@ const Create = ({ id, goToPanel }) => {
       })
     );
   };
+
+  console.log(post, 'post')
+
+  const handleFormSubmit = () => {
+    setPostState({
+      title,
+      description,
+      audioTitle,
+      preview,
+      timecodes
+    })
+
+    goToPanel("post")
+  }
 
   return (
     <Panel id={id}>
@@ -346,7 +360,7 @@ const Create = ({ id, goToPanel }) => {
           </Div>
 
           <Div>
-            <Button size="xl">Далее</Button>
+            <Button size="xl" onClick={handleFormSubmit}>Далее</Button>
           </Div>
         </React.Fragment>
       )}
